@@ -4,7 +4,7 @@
 
 ## Changes
 
-### vNEXT
+### v3.1.1-rune.1
 
 - Added `allowed-operation-names` rule for enforcing a whitelist  of operation names. Usage:
 
