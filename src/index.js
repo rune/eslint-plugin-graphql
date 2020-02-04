@@ -191,6 +191,40 @@ export const rules = {
       );
     }
   },
+  "allowed-operation-names": {
+    meta: {
+      schema: {
+        type: "array",
+        minItems: 1,
+        items: {
+          additionalProperties: false,
+          properties: {
+            ...defaultRuleProperties,
+            allowedOperationNames: {
+              type: "array",
+              items: {
+                type: "string"
+              }
+            }
+          },
+          required: ["allowedOperationNames"],
+          ...schemaPropsExclusiveness
+        }
+      }
+    },
+    create: context => {
+      return createRule(context, optionGroup =>
+        parseOptions(
+          {
+            validators: ["AllowedOperationNames"],
+            options: { allowedOperationNames: optionGroup.allowedOperationNames },
+            ...optionGroup
+          },
+          context
+        )
+      );
+    }
+  },
   "capitalized-type-name": {
     meta: {
       schema: {

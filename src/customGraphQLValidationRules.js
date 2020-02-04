@@ -133,6 +133,22 @@ export function RequiredFields(context, options) {
   };
 }
 
+export function AllowedOperationNames(context, options) {
+  const { allowedOperationNames } = options;
+
+  if (!Array.isArray(allowedOperationNames) || allowedOperationNames.length === 0) {
+    context.reportError(new GraphQLError(`Allowed operation names must be specified`))
+  }
+  return {
+    OperationDefinition(node) {
+      const operationName = node && node.name && node.name.value;
+      if (!allowedOperationNames.includes(operationName)) {
+        context.reportError(new GraphQLError(`Unexpected operation name: ${operationName}`))
+      }
+    }
+  };
+}
+
 export function typeNamesShouldBeCapitalized(context) {
   return {
     NamedType(node) {

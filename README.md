@@ -1,7 +1,27 @@
-> This is a fork of https://github.com/apollographql/eslint-plugin-graphql.
->
-> Changes:
-> - Since we're not publishing to npm, we're including the `lib` folder in version control. After updating `src`, make sure to run `npm run prepublish` and commit all of the changes.
+# rune/eslint-plugin-graphql
+
+> This is a fork of https://github.com/apollographql/eslint-plugin-graphql v3.1.1.
+
+## Changes
+
+### vNEXT
+
+- Added `allowed-operation-names` rule for enforcing a whitelist  of operation names. Usage:
+
+```js
+    "graphql/allowed-operation-names": [
+      "error",
+      {
+        env: "apollo",
+        schemaString: schema,
+        allowedOperationNames: ["firstOperationName", "secondOperationName"],
+      },
+    ],
+```
+
+### v3.1.1
+
+- Since we're not publishing to npm, we're including the `lib` folder in version control. After updating `src`, make sure to run `npm run prepublish` and commit all of the changes.
 
 # eslint-plugin-graphql
 [![npm version](https://badge.fury.io/js/eslint-plugin-graphql.svg)](https://badge.fury.io/js/eslint-plugin-graphql)
