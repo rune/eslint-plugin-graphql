@@ -1,3 +1,8 @@
+> This is a fork of https://github.com/apollographql/eslint-plugin-graphql.
+>
+> Changes:
+> - Since we're not publishing to npm, we're including the `lib` folder in version control. After updating `src`, make sure to run `npm run prepublish` and commit all of the changes.
+
 # eslint-plugin-graphql
 [![npm version](https://badge.fury.io/js/eslint-plugin-graphql.svg)](https://badge.fury.io/js/eslint-plugin-graphql)
 [![Build Status](https://travis-ci.org/apollographql/eslint-plugin-graphql.svg?branch=master)](https://travis-ci.org/apollographql/eslint-plugin-graphql)
